@@ -1,0 +1,128 @@
+<div class="container-fluid my-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Registration Form:</h4>
+        </div>
+    </div>
+    <div>
+        <form [formGroup]="registrationForm">
+            <div class="row">
+                <div class="col-md-6 mb-2">
+                    <div class="form-group mb-1">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="Enter first name">
+                    </div>
+                    <div *ngIf="registrationForm.get('firstName').invalid && (registrationForm.get('firstName').dirty || registrationForm.get('firstName').touched)" class="text text-danger">
+                        <div *ngIf="registrationForm.get('firstName').errors.required">
+                            First name is required.
+                        </div>
+                        <div *ngIf="registrationForm.get('firstName').errors.minlength">
+                            First name must be at least 3 characters long.
+                        </div>
+                        <div *ngIf="!registrationForm.get('firstName').errors.minlength && registrationForm.get('firstName').errors.pattern">
+                            Please enter first name as string only.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group mb-1">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Enter last name">
+                    </div>
+                    <div *ngIf="registrationForm.get('lastName').invalid && (registrationForm.get('lastName').dirty || registrationForm.get('lastName').touched)" class="text text-danger">
+                        <div *ngIf="registrationForm.get('lastName').errors.required">
+                            Last name is required.
+                        </div>
+                        <div *ngIf="registrationForm.get('lastName').errors.pattern">
+                            Please enter last name as string only.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-2">
+                    <div class="form-group mb-1">
+                        <label for="gender">Genger:</label>
+                        <select name="" id="gender" class="form-control" formControlName="gender">
+                            <option value="">--Select Gender--</option>
+                            <option [value]="gender" *ngFor="let gender of genders">{{gender}}</option>
+                        </select>
+                    </div>
+                    <div *ngIf="registrationForm.get('gender').invalid && (registrationForm.get('gender').dirty || registrationForm.get('gender').touched)" class="text text-danger">
+                        <div *ngIf="registrationForm.get('gender').errors.required">
+                            Gender is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group mb-1">
+                        <label for="mobile">Mobile Number:</label>
+                        <input type="text" class="form-control" id="mobile" formControlName="mobile" placeholder="Enter mobile number">
+                    </div>
+                    <div *ngIf="registrationForm.get('mobile').invalid && (registrationForm.get('mobile').dirty || registrationForm.get('mobile').touched)" class="text text-danger">
+                        <div *ngIf="registrationForm.get('mobile').errors.pattern">
+                            Please enter correct mobile number.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-2">
+                    <div class="form-group mb-1">
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control" id="email" formControlName="email" placeholder="Enter email">
+                    </div>
+                    <div *ngIf="registrationForm.get('email').invalid && (registrationForm.get('email').dirty || registrationForm.get('email').touched)" class="text text-danger">
+                        <div *ngIf="registrationForm.get('email').errors.required">
+                            Email is required.
+                        </div>
+                        <div *ngIf="registrationForm.get('email').errors.pattern">
+                            Please enter correct email.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group mb-1">
+                        <label for="accountNumber">Account Number:</label>
+                        <input type="text" class="form-control" id="accountNumber" formControlName="accountNumber" placeholder="Enter account number">
+                    </div>
+                    <div *ngIf="registrationForm.get('accountNumber').invalid && (registrationForm.get('accountNumber').dirty || registrationForm.get('accountNumber').touched)" class="text text-danger">
+                        <div *ngIf="registrationForm.get('accountNumber').errors.required">
+                            Account number is required.
+                        </div>
+                        <div *ngIf="registrationForm.get('accountNumber').errors.pattern">
+                            Please enter coerrect account number.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-2">
+                    <div class="form-group mb-1">
+                        <label for="ifscCode">IFSC code:</label>
+                        <input type="text" class="form-control" id="ifscCode" formControlName="ifscCode" placeholder="Enter IFSC code">
+                    </div>
+                    <div *ngIf="registrationForm.get('ifscCode').invalid && (registrationForm.get('ifscCode').dirty || registrationForm.get('ifscCode').touched)" class="text text-danger">
+                        <div *ngIf="registrationForm.get('ifscCode').errors.required">
+                            IFSC code is required.
+                        </div>
+                        <div *ngIf="registrationForm.get('ifscCode').errors.pattern">
+                            Please enter correct IFSC code.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group mb-1">
+                        <label for="notes">Notes:</label>
+                        <input type="text" class="form-control" id="notes" formControlName="notes" placeholder="Enter notes">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <button class="btn btn-primary" [disabled]="registrationForm.invalid" (click)="onSubmit()">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

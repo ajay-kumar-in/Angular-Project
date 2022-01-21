@@ -1,0 +1,59 @@
+<div class="container-fluid mb-4">
+   <div>
+       <h4>Select city to get city wise bank details</h4>
+    <div>
+        <form [formGroup]="cityNameForm">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group mb-1">
+                        <label for="city">Select City:</label>
+                        <select name="" id="city" class="form-control" formControlName="city" (change)="getBankDetails()">
+                            <option *ngFor="let city of cities; let i=index" [value]="city" id="city{{i}}" [selected]="city === 'DELHI'">{{city}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+   </div>
+</div>
+
+<div class="container-fluid">
+ <div class="table table-responsive">
+    <div class="row">
+        <table class="table table-striped w-100 table-hover table-bordered text-center">
+            <thead>
+                <tr class="bg-info">
+                    <th colspan="3">Bank details displayed: {{this.perPageBankCount-10}} to {{this.perPageBankCount}} out of {{banksCopy.length}} </th>
+                    <th><input type="text" class="border-0 form-control" #branch placeholder="Search branch" (keyup)="searchByBranch(branch.value)"></th>
+                    <th><input type="text" class="border-0 form-control" #address placeholder="Search Address" (keyup)="searchByAddress(address.value)"></th>
+                    <th><input type="text" class="border-0 form-control" #city placeholder="Search City" (keyup)="searchByCity(city.value)"></th>
+                </tr>
+                <tr class="bg-secondary text-white">
+                    <th>Bank Name</th>
+                    <th>Bank Id</th>
+                    <th>IFSC</th>
+                    <th>Branch</th>
+                    <th>Address</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="banks.length > 0">
+                <tr *ngFor="let bank of banks">
+                    <td>{{bank.bank_name}}</td>
+                    <td>{{bank.bank_id}}</td>
+                    <td>{{bank.ifsc}}</td>
+                    <td>{{bank.branch}}</td>
+                    <td>{{bank.address}}</td>
+                    <td>{{bank.city}}</td>
+                </tr>
+                <tr class="bg-info">
+                    <td><span class="cursorPointer" (click)="goToPreviousPage()">Previous</span></td>
+                    <td colspan="4"></td>
+                    <td><span class="cursorPointer" (click)="goToNextPage()">Next</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ </div>
+</div>
