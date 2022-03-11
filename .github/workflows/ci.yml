@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ ajay ]
+    branches: [ main ]
   pull_request:
-    branches: [ ajay ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -15,9 +15,9 @@ jobs:
         node-version: [12.x, 14.x, 16.x]
 
     steps:
-        - uses: actions/checkout@ajay
+        - uses: actions/checkout@main
         - name: Use NodeJS
-          uses: actions/setup-node@ajay
+          uses: actions/setup-node@main
           with:
               node-version: ${{ matrix.node-version }}
               cache: 'npm'
