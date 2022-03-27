@@ -33,7 +33,14 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   onSubmit() {
-    if(this.registrationForm.invalid) return;
+    if(this.registrationForm.invalid) {
+      for (let key in this.registrationForm.value) {
+        if(this.registrationForm.get(key).invalid) {
+          this.registrationForm.get(key).markAsDirty();
+        }
+      }
+      return;
+    }
     console.log('Registration Form', this.registrationForm.value);
   }
 
