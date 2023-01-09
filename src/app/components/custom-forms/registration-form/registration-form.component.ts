@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registration-form',
@@ -20,16 +20,16 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit(): void {
     this.genders = ['Male', 'Female', 'Other'];
 
-    this.registrationForm = new FormGroup({
-      firstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.pattern(this.nameRegex)]),
-      lastName: new FormControl('', [Validators.required,  Validators.pattern(this.nameRegex)]),
-      gender: new FormControl('', [Validators.required]),
-      mobile: new FormControl('', [Validators.pattern(this.mobileRegex)]),
-      email: new FormControl('', [Validators.required, Validators.pattern(this.emailRegex)]),
-      accountNumber: new FormControl('', [Validators.required, Validators.pattern(this.accNoRegex)]),
-      ifscCode: new FormControl('', [Validators.required, Validators.pattern(this.IFSCRegex)]),
-      notes: new FormControl(''),
-      address: new FormControl('', [Validators.required]) 
+    this.registrationForm = new UntypedFormGroup({
+      firstName: new UntypedFormControl('', [Validators.required, Validators.minLength(3), Validators.pattern(this.nameRegex)]),
+      lastName: new UntypedFormControl('', [Validators.required,  Validators.pattern(this.nameRegex)]),
+      gender: new UntypedFormControl('', [Validators.required]),
+      mobile: new UntypedFormControl('', [Validators.pattern(this.mobileRegex)]),
+      email: new UntypedFormControl('', [Validators.required, Validators.pattern(this.emailRegex)]),
+      accountNumber: new UntypedFormControl('', [Validators.required, Validators.pattern(this.accNoRegex)]),
+      ifscCode: new UntypedFormControl('', [Validators.required, Validators.pattern(this.IFSCRegex)]),
+      notes: new UntypedFormControl(''),
+      address: new UntypedFormControl('', [Validators.required]) 
     })
     
     if(localStorage.getItem('regForm')) {

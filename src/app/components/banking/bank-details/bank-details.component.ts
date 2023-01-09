@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { BankModel } from 'src/app/shared/models/bank-details/bank';
 import { BankingService } from '../services/banking.service';
 
@@ -21,8 +21,8 @@ export class BankDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.cityNameForm = new FormGroup({
-      city: new FormControl('DELHI')
+    this.cityNameForm = new UntypedFormGroup({
+      city: new UntypedFormControl('DELHI')
     });
 
     this.getBankDetails();
