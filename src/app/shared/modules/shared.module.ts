@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddressFormComponent } from '../components/address-form/address-form.component';
+import { CommonModule } from '@angular/common';
 
 const components = [
   AddressFormComponent
@@ -10,7 +11,8 @@ const components = [
 const modules = [
   FormsModule,
   ReactiveFormsModule,
-  HttpClientModule
+  HttpClientModule,
+  CommonModule
 ]
 
 @NgModule({

@@ -28,8 +28,13 @@ export class RegistrationFormComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.pattern(this.emailRegex)]),
       accountNumber: new FormControl('', [Validators.required, Validators.pattern(this.accNoRegex)]),
       ifscCode: new FormControl('', [Validators.required, Validators.pattern(this.IFSCRegex)]),
-      notes: new FormControl('')    
+      notes: new FormControl(''),
+      address: new FormControl('', [Validators.required]) 
     })
+    
+    if(localStorage.getItem('regForm')) {
+      this.registrationForm.setValue(JSON.parse(localStorage.getItem('regForm') || ''))
+    }
   }
 
   onSubmit() {
@@ -42,6 +47,7 @@ export class RegistrationFormComponent implements OnInit {
       return;
     }
     console.log('Registration Form', this.registrationForm.value);
+    localStorage.setItem('regForm', JSON.stringify(this.registrationForm.value))
   }
 
 }

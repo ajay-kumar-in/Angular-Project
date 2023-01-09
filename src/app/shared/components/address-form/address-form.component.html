@@ -1,1 +1,90 @@
-<p>address-form works!</p>
+<form [formGroup]="addressForm">
+    <fieldset>
+        <legend class="legend">{{legend}}:</legend>
+        <div class="row">
+            <div class="col-md-6 mb-2">
+                <div class="form-group mb-1">
+                    <label for="addressLine1">Address Line 1:</label>
+                    <input type="text" class="form-control" id="addressLine1" formControlName="addressLine1"
+                        placeholder="Enter address line 1" (blur)="onTouched()">
+                </div>
+                <div *ngIf="addressForm.get('addressLine1').invalid && (addressForm.get('addressLine1').dirty || addressForm.get('addressLine1').touched)"
+                    class="text text-danger">
+                    <div *ngIf="addressForm.get('addressLine1').errors.required">
+                        Address is required.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-2">
+                <div class="form-group mb-1">
+                    <label for="addressLine2">Address Line 2:</label>
+                    <input type="text" class="form-control" id="addressLine2" formControlName="addressLine2"
+                        placeholder="Enter address line 2" (blur)="onTouched()">
+                </div>
+                <div *ngIf="addressForm.get('addressLine2').invalid && (addressForm.get('addressLine2').dirty || addressForm.get('addressLine2').touched)"
+                    class="text text-danger">
+                    <div *ngIf="addressForm.get('addressLine2').errors.required">
+                        Address is required.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-2">
+                <div class="form-group mb-1">
+                    <label for="state">State:</label>
+                    <input type="text" class="form-control" id="state" formControlName="state"
+                        placeholder="Enter state" (blur)="onTouched()">
+                </div>
+                <div *ngIf="addressForm.get('state').invalid && (addressForm.get('state').dirty || addressForm.get('state').touched)"
+                    class="text text-danger">
+                    <div *ngIf="addressForm.get('state').errors.required">
+                        State is required.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-2">
+                <div class="form-group mb-1">
+                    <label for="city">City:</label>
+                    <input type="text" class="form-control" id="city" formControlName="city" placeholder="Enter city" (blur)="onTouched()">
+                </div>
+                <div *ngIf="addressForm.get('city').invalid && (addressForm.get('city').dirty || addressForm.get('city').touched)"
+                    class="text text-danger">
+                    <div *ngIf="addressForm.get('city').errors.required">
+                        City is required.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-2">
+                <div class="form-group mb-1">
+                    <label for="pinCode">Pin Code:</label>
+                    <input type="text" class="form-control" id="pinCode" formControlName="pinCode"
+                        placeholder="Enter pin code" (blur)="onTouched()">
+                </div>
+                <div *ngIf="addressForm.get('pinCode').invalid && (addressForm.get('pinCode').dirty || addressForm.get('pinCode').touched)"
+                    class="text text-danger">
+                    <div *ngIf="addressForm.get('pinCode').errors.required">
+                        Pin code is required.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-2">
+                <div class="form-group mb-1">
+                    <label for="country">Country:</label>
+                    <input type="text" class="form-control" id="country" formControlName="country"
+                        placeholder="Enter country" (blur)="onTouched()">
+                </div>
+                <div *ngIf="addressForm.get('country').invalid && (addressForm.get('country').dirty || addressForm.get('country').touched)"
+                    class="text text-danger">
+                    <div *ngIf="addressForm.get('country').errors.required">
+                        Country is required.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
