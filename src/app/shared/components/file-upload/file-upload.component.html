@@ -1,1 +1,48 @@
-<p>file-upload works!</p>
+
+
+<form [formGroup]="fileForm">
+    <fieldset>
+        <legend class="legend">File:</legend>
+        <div class="row">
+            <div class="col-md-6 mb-2">
+                <div class="form-group mb-1">
+                    <input type="file" class="file_element" #fileREf formControlName="fileControl" (change)="onFileSelected($event)">
+                    <span class="file_name_place">{{fileName}}</span>
+                    <button class="btn btn-primary btn-sm" (click)="fileREf.click()">upload</button>
+                </div>
+                <div *ngIf="fileForm.get('fileControl').invalid && (fileForm.get('fileControl').dirty || fileForm.get('fileControl').touched)" class="text text-danger">
+                    <div *ngIf="fileForm.get('fileControl').errors.required">
+                        File is required.
+                    </div>
+                </div>
+                <div *ngIf="imagePreview">
+                    <img class="image_preview" [src]="imagePreview" alt="place">
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <div class="form-group mb-1">
+                    <label for="name">IFSC code:</label>
+                    <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter IFSC code">
+                </div>
+                <div *ngIf="fileForm.get('name').invalid && (fileForm.get('name').dirty || fileForm.get('name').touched)" class="text text-danger">
+                    <div *ngIf="fileForm.get('name').errors.required">
+                        Name is required.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<!-- <div class="row">
+    <div class="col-md-6 mb-2">
+        <div class="form-group mb-1">
+            <span class="file_name_place">{{fileName}}</span>
+            <button class="btn btn-primary btn-sm" (click)="fileREf.click()">upload</button>
+        </div>
+        <div *ngIf="imagePreview">
+            <img class="image_preview" [src]="imagePreview" alt="place">
+        </div>
+    </div>
+</div> -->

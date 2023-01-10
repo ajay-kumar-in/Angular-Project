@@ -29,7 +29,8 @@ export class RegistrationFormComponent implements OnInit {
       accountNumber: new UntypedFormControl('', [Validators.required, Validators.pattern(this.accNoRegex)]),
       ifscCode: new UntypedFormControl('', [Validators.required, Validators.pattern(this.IFSCRegex)]),
       notes: new UntypedFormControl(''),
-      // address: new UntypedFormControl(null, [Validators.required])
+      address: new UntypedFormControl(null, [Validators.required]),
+      // file: new UntypedFormControl(null, [Validators.required])
     })
     
     if(localStorage.getItem('regForm')) {

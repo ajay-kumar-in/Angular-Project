@@ -1,0 +1,27 @@
+.file_element {
+    display: none;
+}
+
+.file_name_place {
+    border-bottom: 2px solid #999;
+    min-width: 200px;
+    width: 200px;
+    display: inline-block;
+    margin-right: 5px;
+    overflow: hidden;
+    margin-bottom: -10px;
+}
+
+.image_preview {
+    width: 200px;
+    height: auto;
+}
+
+fieldset {
+    border: 2px solid #999;
+    padding: 10px;
+}
+
+.legend {
+    width: 45px;
+}
