@@ -3,9 +3,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddressFormComponent } from '../components/address-form/address-form.component';
 import { CommonModule } from '@angular/common';
+import { FileUploadComponent } from '../components/file-upload/file-upload.component';
 
 const components = [
-  AddressFormComponent
+  AddressFormComponent,
+  FileUploadComponent
 ]
 
 const modules = [
