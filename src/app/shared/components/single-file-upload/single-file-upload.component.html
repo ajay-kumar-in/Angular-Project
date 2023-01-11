@@ -1,0 +1,22 @@
+<form [formGroup]="singleFileUploadForm" class="mt-3">
+    <fieldset>
+        <legend>Single- File Upload:</legend>
+        <div class="row">
+            <div class="col-md-6 mb-2">
+                <div class="form-group mb-1">
+                    <input type="file" class="file_element" #fileREf [accept]="acceptType" (change)="onFileSelected($event)">
+                    <span class="file_name_place">{{fileName}}</span>
+                    <button class="btn btn-primary btn-sm" (click)="fileREf.click()">Select</button>
+                </div>
+                <!-- <div *ngIf="singleFileUploadForm.get('uploadedFileName').invalid && (singleFileUploadForm.get('uploadedFileName').dirty || singleFileUploadForm.get('uploadedFileName').touched)" class="text text-danger">
+                    <div *ngIf="singleFileUploadForm.get('uploadedFileName').errors.required">
+                        File is required.
+                    </div>
+                </div> -->
+                <div *ngIf="imagePreview">
+                    <img class="image_preview" [src]="imagePreview" alt="place">
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>

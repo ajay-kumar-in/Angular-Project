@@ -21,8 +21,8 @@ export class AddressFormComponent implements ControlValueAccessor, OnDestroy {
   @Input() legend: string = '';
 
   addressForm: any = this.fb.group({
-    addressLine1: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(30)]],
-    addressLine2: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(30)]],
+    addressLine1: ['', [Validators.required]],
+    addressLine2: ['', [Validators.required]],
     state: ['', [Validators.required]],
     city: ['', [Validators.required]],
     pinCode: ['', [Validators.required]],

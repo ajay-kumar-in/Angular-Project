@@ -4,10 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddressFormComponent } from '../components/address-form/address-form.component';
 import { CommonModule } from '@angular/common';
 import { FileUploadComponent } from '../components/file-upload/file-upload.component';
+import { SingleFileUploadComponent } from '../components/single-file-upload/single-file-upload.component';
 
 const components = [
   AddressFormComponent,
-  FileUploadComponent
+  FileUploadComponent,
+  SingleFileUploadComponent
 ]
 
 const modules = [

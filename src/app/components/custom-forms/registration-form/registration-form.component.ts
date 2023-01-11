@@ -30,6 +30,7 @@ export class RegistrationFormComponent implements OnInit {
       ifscCode: new UntypedFormControl('', [Validators.required, Validators.pattern(this.IFSCRegex)]),
       notes: new UntypedFormControl(''),
       address: new UntypedFormControl(null, [Validators.required]),
+      singleFile: new UntypedFormControl(null, [Validators.required]),
       // file: new UntypedFormControl(null, [Validators.required])
     })
     
