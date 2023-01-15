@@ -9,10 +9,6 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class FormArrayComponent implements OnInit {
 
   form: any;
-  skillFormList = this.fb.group({
-    skill: ['', [Validators.required]],
-    experience: ['', [Validators.required]]
-  })
 
   constructor(
     private fb: FormBuilder
@@ -21,7 +17,10 @@ export class FormArrayComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       skills: this.fb.array([
-        this.skillFormList
+        this.fb.group({
+          skill: ['', [Validators.required]],
+          experience: ['', [Validators.required]]
+        })
       ])
     })
   }
@@ -35,7 +34,11 @@ export class FormArrayComponent implements OnInit {
   }
 
   addSkill() {
-    this.skills.push(this.skillFormList)
+    const skillForm = this.fb.group({
+      skill: ['', [Validators.required]],
+      experience: ['', [Validators.required]]
+    })
+    this.skills.push(skillForm)
   }
 
   deleteSkill(index: number) {
