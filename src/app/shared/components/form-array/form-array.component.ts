@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-array',
@@ -16,12 +16,12 @@ export class FormArrayComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
       skills: this.fb.array([
-       this.skillFormList
+        this.skillFormList
       ])
     })
   }
@@ -30,11 +30,18 @@ export class FormArrayComponent implements OnInit {
     return this.form.controls['skills'] as FormArray;
   }
 
+  getFormGroupAt(i: number) {
+    return this.form.controls['skills'].at(i).controls as FormGroup;
+  }
+
   addSkill() {
     this.skills.push(this.skillFormList)
   }
 
   deleteSkill(index: number) {
+    if(this.skills.length <= 1) {
+      return;
+    }
     this.skills.removeAt(index)
   }
 
