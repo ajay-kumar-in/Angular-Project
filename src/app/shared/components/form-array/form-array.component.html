@@ -1,0 +1,54 @@
+<div [formGroup]="form" class="mt-3">
+    <div formArrayName="skills">
+        <fieldset>
+            <legend class="legend">Skills:</legend>
+            <ng-container *ngFor="let skillForm of skills.controls; let i = index">
+                <form class="lesson-form-row" [formGroup]="skillForm">
+                    <div class="row">
+                        <div class="col-md-5 mb-2">
+                            <div class="form-group mb-1">
+                                <label for="skill">Skill:</label>
+                                <input type="text" class="form-control" id="skill" formControlName="skill"
+                                    placeholder="Enter skill name">
+                            </div>
+                            <div *ngIf="skillForm.get('skill').invalid && (skillForm.get('skill').dirty || skillForm.get('skill').touched)"
+                                class="text text-danger">
+                                <div *ngIf="skillForm.get('skill').errors.required">
+                                    Skill is required.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 mb-2">
+                            <div class="form-group mb-1">
+                                <label for="experience">Experience:</label>
+                                <input type="text" class="form-control" id="experience" formControlName="experience"
+                                    placeholder="Enter experience name">
+                            </div>
+                            <div *ngIf="skillForm.get('experience').invalid && (skillForm.get('experience').dirty || skillForm.get('experience').touched)"
+                                class="text text-danger">
+                                <div *ngIf="skillForm.get('experience').errors.required">
+                                    Experience is required.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 mt-4">
+                            <div class="mt-1">
+                                <button class="btn btn-md bg-primary w-25" (click)="addSkill()">++</button>
+                                <button class="btn btn-md bg-danger w-25 ml-3" (click)="deleteSkill(i)">--</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </ng-container>
+
+            <div class="row">
+                <div class="col-md-6 mt-4">
+                    <div class="mt-1">
+                        <button class="btn btn-md bg-success w-25" (click)="submitForm()"
+                            [disabled]="form.invalid">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>

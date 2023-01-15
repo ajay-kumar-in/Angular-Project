@@ -5,11 +5,13 @@ import { AddressFormComponent } from '../components/address-form/address-form.co
 import { CommonModule } from '@angular/common';
 import { FileUploadComponent } from '../components/file-upload/file-upload.component';
 import { SingleFileUploadComponent } from '../components/single-file-upload/single-file-upload.component';
+import { FormArrayComponent } from '../components/form-array/form-array.component';
 
 const components = [
   AddressFormComponent,
   FileUploadComponent,
-  SingleFileUploadComponent
+  SingleFileUploadComponent,
+  FormArrayComponent
 ]
 
 const modules = [
