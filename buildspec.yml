@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14 # Choose appropriate Node.js version
+    commands:
+      - npm install -g @angular/cli # Install Angular CLI globally
+      - npm install # Install project dependencies
+
+  pre_build:
+    commands:
+      # Run any pre-build commands such as linting or tests
+      # Example:
+      # - npm run lint
+      # - npm run test
+
+  build:
+    commands:
+      - ng build --prod # Build Angular project for production
+
+artifacts:
+  files:
+    - '**/*' # Include all files in the build output directory
+  discard-paths: no # Retain folder structure in the artifact
+
+cache:
+  paths:
+    - node_modules/**/* # Cache node_modules to speed up builds
+
