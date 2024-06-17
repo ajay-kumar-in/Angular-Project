@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16  # Specify Node.js version here
+    commands:
+      - npm install -g @angular/cli@12  # Install Angular CLI globally
+      - npm install  # Install project dependencies
+
+  build:
+    commands:
+      - ng build --prod --base-href /  # Build Angular project for production
+
+artifacts:
+  files:
+    - '**/*'  # Include all files in the build artifact
+  base-directory: dist/ajaytest  # Adjust this path based on your project setup
+  discard-paths: yes  # Discard the local directory structure in the artifact
+
+cache:
+  paths:
+    - node_modules/**/*
+
+
